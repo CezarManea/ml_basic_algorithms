@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/CezarManea/ml_basic_algorithms/issues"
   },
-  "homepage": "https://github.com/CezarManea/ml_basic_algorithms"
+  "homepage": "https://github.com/CezarManea/ml_basic_algorithms",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
 }

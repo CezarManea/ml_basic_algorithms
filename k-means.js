@@ -27,7 +27,9 @@ function KMeans(arrayToProcess, Clusters) {
             var newGroup;
 
             for (j = 0; j < Clusters; j++) {
-                distance = Math.sqrt((Centroids[j].x - arrayToProcess[i].x) * (Centroids[j].x - arrayToProcess[i].x) + (Centroids[j].y - arrayToProcess[i].y) * (Centroids[j].y - arrayToProcess[i].y));
+                var x = Math.pow((Centroids[j].x - arrayToProcess[i].x), 2);
+                var y = Math.pow((Centroids[j].y - arrayToProcess[i].y), 2);
+                distance = Math.sqrt(x + y);
                 if (oldDistance == -1) {
                     oldDistance = distance;
                     newGroup = j;
