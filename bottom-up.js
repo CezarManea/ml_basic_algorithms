@@ -1,19 +1,6 @@
 var HierarchicalClustering = function (threshold) {
     this.threshold = threshold == undefined ? Infinity : threshold;
-};
-
-var distances = function () {
-    return function (v1, v2) {
-        var total = 0;
-        for (var i = 0; i < v1.length; i++) {
-            total += Math.pow(v2[i] - v1[i], 2);
-        }
-        return Math.sqrt(total);
-    };
-};
-
-HierarchicalClustering.prototype = {
-    cluster: function (items, snapshotPeriod, snapshotCb) {
+    this.cluster = function (items, snapshotPeriod, snapshotCb) {
         this.clusters = [];
         this.dists = [];  // distances between each pair of clusters
         this.mins = []; // closest cluster for each cluster
@@ -61,9 +48,9 @@ HierarchicalClustering.prototype = {
         });
 
         return this.clusters;
-    },
+    };
 
-    mergeClosest: function () {
+    this.mergeClosest = function () {
         // find two closest clusters from cached mins
         var minKey = 0, min = Infinity, i;
         for (i = 0; i < this.clusters.length; i++) {
@@ -133,6 +120,16 @@ HierarchicalClustering.prototype = {
 
         return true;
     }
+};
+
+var distances = function () {
+    return function (v1, v2) {
+        var total = 0;
+        for (var i = 0; i < v1.length; i++) {
+            total += Math.pow(v2[i] - v1[i], 2);
+        }
+        return Math.sqrt(total);
+    };
 };
 
 var hcluster = function (items, threshold, snapshot, snapshotCallback) {
