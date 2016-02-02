@@ -142,4 +142,11 @@ var hcluster = function (items, threshold, snapshot, snapshotCallback) {
     return clusters;
 };
 
-hcluster();
+var colors = [
+    [20, 20, 80],
+    [22, 22, 90],
+    [250, 255, 253],
+    [100, 54, 255]
+];
+
+console.log(hcluster(colors));
